@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Box - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">STREAM BOX</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="subscription.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="btn" style="padding: 8px 15px; margin-left: 15px;">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Unlimited movies, TV shows, and more</h1>
+        <p>Watch anywhere. Cancel anytime. Ready to watch? Start streaming now.</p>
+        <button class="btn" onclick="scrollToMovies()">Browse Movies</button>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for movies or TV shows..." onkeyup="searchMovies()">
+            <button class="btn">Search</button>
+        </div>
+        <div class="filter-btns">
+            <button class="filter-btn active" onclick="filterMovies('all')">All</button>
+            <button class="filter-btn" onclick="filterMovies('action')">Action</button>
+            <button class="filter-btn" onclick="filterMovies('comedy')">Comedy</button>
+            <button class="filter-btn" onclick="filterMovies('drama')">Drama</button>
+            <button class="filter-btn" onclick="filterMovies('sci-fi')">Sci-Fi</button>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="movies-section" id="moviesSection">
+        <h2 class="section-title">Trending Now</h2>
+        <div class="movies-grid" id="moviesGrid">
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col footer-logo">
+      <h2>STREAM BOX</h2>
+      <p>Your ultimate movie streaming service.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Instagram</h3>
+      <a href="https://www.instagram.com/steambox" target="_blank">📸 @steambox</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Email</h3>
+      <a href="mailto:info@steambox.com">📧 info@steambox.com</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Facebook & Contact</h3>
+      <a href="https://www.facebook.com/steambox" target="_blank">👍 Facebook</a>
+      <a href="tel:+1234567890">📞 +123 456 7890</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Steam Box. All Rights Reserved.</p>
+  </div>
+</footer>
+
+  
+
+    <script>
+        // Sample movie data
+        const movies = [
+            { title: "Avengers", genre: "action", rating: "9.0/10", img: "images/avengers.webp",link:"https://www.youtube.com/watch?v=6ZfuNTqbHE8" },
+            { title: "The Matrix", genre: "sci-fi", rating: "8.7/10", img: "images/mat.jpeg",link:"https://www.youtube.com/watch?v=vKQi3bBA1y8" },
+            { title: "Inception", genre: "sci-fi", rating: "8.8/10", img: "images/incep.jpeg",link:"https://www.youtube.com/watch?v=YoHD9XEInc0" },
+            { title: "The Hangover", genre: "comedy", rating: "7.7/10", img: "images/thehangover.jpeg",link:"https://www.youtube.com/watch?v=TZc39afdeXU" },
+            { title: "Gladiator", genre: "action", rating: "8.5/10", img: "images/Gladiator.jpeg",link:"https://www.youtube.com/watch?v=P5ieIbInFpg" },
+            { title: "Joker", genre: "drama", rating: "9.3/10", img: "images/joker.jpeg",link:"https://www.youtube.com/watch?v=zAGVQLHvwOY" },
+            { title: "Interstellar", genre: "sci-fi", rating: "8.6/10", img:"images/intersteller.jpeg",link:"https://www.youtube.com/watch?v=zSWdZVtXT7E" },
+            { title: "The Entertainment", genre: "comedy", rating: "7.6/10", img: "images/entertainment.jpeg",link:"https://www.youtube.com/watch?v=N_WD28tkyEk" },
+            { title: "Fight Club", genre: "drama", rating: "8.8/10", img: "images/fight.jpeg",link:"https://www.youtube.com/watch?v=0Xi-uFS3p7g" },
+            { title: "Thor", genre: "action", rating: "8.1/10", img: "images/thor.jpeg",link:"https://www.youtube.com/watch?v=Go8nTmfrQd8" },
+            { title: "A Space Odyssey", genre: "sci-fi", rating: "8.1/10", img: "images/space.jpeg",link:"https://www.youtube.com/watch?v=oR_e9y-bka0" },
+            { title: "Actor in Law", genre: "comedy", rating: "6.8/10", img: "images/actor.jpeg",link:"https://www.youtube.com/watch?v=ksiNI9UHEsI" }
+        ];
+        
+
+       // Display movies
+    function display(list) {
+    const box = document.getElementById("moviesGrid");
+    box.innerHTML = list.map(m => `
+        <div class="movie-card" onclick="window.open('${m.link || "#"}', '_blank')">
+            <img src="${m.img}">
+            <div class="movie-info">
+                <div class="movie-title">${m.title}</div>
+                <div class="movie-genre">${m.genre.toUpperCase()}</div>
+                <div class="movie-rating">${m.rating}</div>
+            </div>
+        </div>
+    `).join("");
+}
+
+
+    // Show alert on click
+    function showMovie(t, g, r) {
+        alert(`You clicked on ${t}!\n\nGenre: ${g}\nRating: ${r}`);
+    }
+
+    // Search movies
+    function searchMovies() {
+        const text = document.getElementById("searchInput").value.toLowerCase();
+        display(movies.filter(m => m.title.toLowerCase().includes(text) || m.genre.includes(text)));
+    }
+
+    // Filter by genre
+    function filterMovies(g) {
+        display(g === "all" ? movies : movies.filter(m => m.genre === g));
+    }
+    // Scroll to movies section 
+    function scrollToMovies() {
+         document.getElementById('moviesSection').scrollIntoView({ behavior: 'smooth' }); 
+        }
+    // Load all movies initially
+    window.onload = () => display(movies);
+    
+</script>
+
+</body>
+</html>
