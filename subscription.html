@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans - Stream Box</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the subscription page */
+        .pricing-section {
+            padding: 100px 50px;
+            text-align: center;
+            margin-top: 70px;
+
+            /* Background Image */
+            background-image: url('images/planback.avif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        .pricing-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(2px);
+        }
+        .pricing-section * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-section h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #e50914;
+        }
+
+        .pricing-section p {
+            font-size: 18px;
+            margin-bottom: 50px;
+            color: #ccc;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.5);
+            border-color: #e50914;
+        }
+
+        .plan-card.premium {
+            background-color: #000;
+            border-color: #e50914;
+            transform: scale(1.05);
+        }
+
+        .plan-card.premium:hover {
+            transform: scale(1.1);
+        }
+
+        .plan-card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #e50914;
+        }
+
+        .plan-card .price {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .plan-card .price span {
+            font-size: 18px;
+            font-weight: normal;
+            color: #ccc;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .plan-card ul li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-card ul li::before {
+            content: '✓';
+            color: #e50914;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .plan-card .btn {
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">STREAM BOX</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subscription.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="btn" style="padding: 8px 15px; margin-left: 15px;">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <section class="pricing-section">
+        <h1>Choose Your Streaming Plan</h1>
+        <p>Start watching today. Upgrade, downgrade, or cancel anytime.</p>
+
+        <div class="pricing-grid">
+            <!-- Basic Plan -->
+            <div class="plan-card">
+                <h2>Basic</h2>
+                <div class="price">Rs.500<span>/month</span></div>
+                <ul>
+                    <li>Access to all movies & TV shows</li>
+                    <li>Watch on 1 device at a time</li>
+                    <li>Standard Definition (SD)</li>
+                    <li>Unlimited mobile movies</li>
+                </ul>
+                <a href="login.html" class="btn">Start Basic</a>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="plan-card">
+                <h2>Standard</h2>
+                <div class="price">Rs.1000<span>/month</span></div>
+                <ul>
+                    <li>Access to all movies & TV shows</li>
+                    <li>Watch on 2 devices at a time</li>
+                    <li>Full High Definition (HD)</li>
+                    <li>Download on 2 devices</li>
+                </ul>
+                <a href="login.html" class="btn">Start Standard</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="plan-card premium">
+                <h2>Premium</h2>
+                <div class="price">Rs.2000<span>/month</span></div>
+                <ul>
+                    <li>Access to all movies & TV shows</li>
+                    <li>Watch on 4 devices at a time</li>
+                    <li>Ultra High Definition (4K + HDR)</li>
+                    <li>Download on 6 devices</li>
+                </ul>
+                <a href="login.html" class="btn">Start Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col footer-logo">
+                <h2>STREAM BOX</h2>
+                <p>Your ultimate movie streaming service.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/steambox" target="_blank">📸 @steambox</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Email</h3>
+                <a href="mailto:info@steambox.com">📧 info@steambox.com</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Facebook & Contact</h3>
+                <a href="https://www.facebook.com/steambox" target="_blank">👍 Facebook</a>
+                <a href="tel:+1234567890">📞 +123 456 7890</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Steam Box. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

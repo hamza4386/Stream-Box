@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Stream Box</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Background image for the full page */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0 20px;
+
+            background-image: url("images/loginbackground.png"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.623);
+            padding: 60px 68px 40px;
+            border-radius: 4px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+
+        .login-box h1 {
+            font-size: 32px;
+            margin-bottom: 28px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .login-form input::placeholder {
+            color: #8c8c8c;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 24px;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #f40612;
+        }
+
+        .login-help {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #b3b3b3;
+            margin-top: 10px;
+        }
+
+        .login-help a {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .login-help a:hover {
+            text-decoration: underline;
+        }
+
+        .login-signup {
+            color: #737373;
+            margin-top: 60px;
+        }
+
+        .login-signup a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .login-signup a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign In</h1>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Email or phone number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+                
+                <div class="login-help">
+                    <div>
+                        <input type="checkbox" id="remember-me" checked>
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="contact.html">Need help?</a>
+                </div>
+            </form>
+
+            <div class="login-signup">
+                New to Stream Box? <a href="#">Sign up now.</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "" || password === "") {
+                alert("Please enter both email/phone number and password.");
+                return;
+            }
+
+            alert(`Login successful for user: ${username}`);
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
